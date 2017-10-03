@@ -1,52 +1,8 @@
-
-# coding: utf-8
-
-# In[1]:
-
-import keras
-
-
-# In[2]:
-
-import TensorFlow
-
-
-# In[3]:
-
-get_ipython().system('pip install TensorFlow')
-
-
-# In[6]:
-
-import tensorflow
-
-
-# In[8]:
-
-get_ipython().system('pip install input_data')
-
-
-# In[9]:
-
-import input_data
-
-
-# In[10]:
-
 from tensorflow.examples.tutorials.mnist import input_data
-
-
-# In[11]:
-
 mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
-
-
-# In[12]:
 
 import tensorflow as tf
 
-
-# In[18]:
 
 #parameters
 learning_rate = 0.01
@@ -55,20 +11,14 @@ batch_size = 100
 display_step = 2
 
 
-# In[19]:
-
 #placeholder
 x= tf.placeholder("float", [None, 784])
 y= tf.placeholder("float", [None, 10])
 
 
-# In[20]:
-
 w= tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 
-
-# In[30]:
 
 with tf.name_scope("Wx_b") as scope:
     model = tf.nn.softmax(tf.matmul(x, w)+b)
@@ -111,7 +61,6 @@ with tf.Session() as sess:
     print("accuracy-",accuracy.eval({x:mnist.test.images, y:mnist.test.labels}))
 
 
-# In[ ]:
 
 
 
